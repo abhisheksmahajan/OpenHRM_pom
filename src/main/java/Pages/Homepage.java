@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactoryFinder;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class Homepage {
     WebDriver driver;
     WebDriverWait wait;
@@ -21,6 +23,7 @@ public class Homepage {
 
     public Homepage(WebDriver driver) {
         this.driver = driver;
+        wait= new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
     public void clickonfindpatientrecords(){

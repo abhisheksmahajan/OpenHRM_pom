@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Registrationpage {
     WebDriver driver;
@@ -57,10 +60,12 @@ public class Registrationpage {
     WebElement Cancel;
     @FindBy(css = ".submitButton")
     WebElement confirm;
+    WebDriverWait wait;
 
     public Registrationpage(WebDriver driver) {
 
         this.driver = driver;
+        wait= new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
     public void setGivenName(String givenname){
