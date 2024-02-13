@@ -13,7 +13,7 @@ import java.time.Duration;
 public class Homepage {
     WebDriver driver;
     WebDriverWait wait;
-    @FindBy(id="coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension")
+    @FindBy(css="a[id='coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension']")
     WebElement findPetientRecords;
     @FindBy(id="referenceapplication-vitals-referenceapplication-vitals-extension")
     WebElement captureVitals;
@@ -23,7 +23,7 @@ public class Homepage {
 
     public Homepage(WebDriver driver) {
         this.driver = driver;
-        wait= new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait= new WebDriverWait(driver, Duration.ofSeconds(20));
         PageFactory.initElements(driver, this);
     }
     public void clickonfindpatientrecords(){
@@ -39,6 +39,8 @@ public class Homepage {
         registerPatient.click();
     }
     public void clickonhomeicon(){
+        try{
+        Thread.sleep(3000);}catch (Exception e){}
         wait.until(ExpectedConditions.elementToBeClickable(homeIcon));
         homeIcon.click();
     }
