@@ -8,6 +8,7 @@ public class Patientpage {
     WebElement scheduleappointment;
     @FindBy(xpath = "//div[contains(text(),'Start Visit')]")
     WebElement startVisit;
+    @FindBy
 
 
 
