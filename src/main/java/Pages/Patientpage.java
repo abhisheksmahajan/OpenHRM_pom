@@ -29,7 +29,7 @@ public class Patientpage {
     WebElement deleteuserReason;
     @FindBy(css="#delete-patient-creation-dialog>.dialog-content>.confirm.right")
     WebElement Confirmdeletepetient;
-    @FindBy(css="a[href='/openmrs/coreapps/clinicianfacing/patient.page?patientId=645']")
+    @FindBy(css="#breadcrumbs>li:nth-child(2)>a")
     WebElement nameIcon;
     WebDriver driver;
     WebDriverWait wait;

@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,17 +14,17 @@ public class Capturevitalspage {
     WebDriverWait wait;
     @FindBy(id = "coreapps-vitals-confirm")
     WebElement captureVital;
-    @FindBy(css = ".number.numeric-range.focused")
+    @FindBy(css = "#height>input")
     WebElement hight;
-    @FindBy(css = ".number.numeric-range.focused")
+    @FindBy(css = "#weight>input")
     WebElement weight;
-    @FindBy(css = ".number.numeric-range.focused")
+    @FindBy(css = "#temperature>input")
     WebElement Tempreture;
-    @FindBy(css = ".integer.numeric-range.focused")
+    @FindBy(css = "#heart_rate>input")
     WebElement pulse;
-    @FindBy(css = "integer.numeric-range.focused")
-    WebElement resporatoryRate;
-    @FindBy(css = "#bp_systolic>.integer.numeric-range.expected.focused")
+    @FindBy(css = "#respiratory_rate>input")
+    WebElement respiratoryRate;
+    @FindBy(css = "#bp_systolic>input")
     WebElement aviolBloodrete;
     @FindBy(css = "#bp_diastolic>input")
     WebElement vetricalBloodrete;
@@ -31,8 +32,10 @@ public class Capturevitalspage {
     WebElement o2rate;
     @FindBy(css = "#next-button")
     WebElement nextBtn;
-    @FindBy(css = ".submitButton.confirm.right.focused")
+    @FindBy(css = "#confirmationQuestion>p>button")
     WebElement submitBtn;
+    @FindBy(css = "#existing-encounters>table")
+    WebElement table;
 
     public Capturevitalspage(WebDriver driver) {
         this.driver = driver;
@@ -42,6 +45,7 @@ public class Capturevitalspage {
     }
 
     public void ClickonYescapture() {
+
         captureVital.click();
     }
 
@@ -62,7 +66,7 @@ public class Capturevitalspage {
     }
 
     public void AddResporetoryrate(String Resprate) {
-        resporatoryRate.sendKeys(Resprate);
+        respiratoryRate.sendKeys(Resprate);
     }
 
     public void AddBloodpresure(String Arate, String Vrate) {
@@ -80,5 +84,15 @@ public class Capturevitalspage {
 
     public void ClickonSubmit() {
         submitBtn.click();
+    }
+    public boolean istabaledisplay(){
+        return table.isDisplayed();
+    }
+    public boolean isButtonpresent(){
+        try{
+        return captureVital.isDisplayed();}
+        catch (NoSuchElementException e){
+            return false;
+        }
     }
 }
