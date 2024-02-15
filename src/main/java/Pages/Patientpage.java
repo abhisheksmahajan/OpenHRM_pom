@@ -31,6 +31,17 @@ public class Patientpage {
     WebElement Confirmdeletepetient;
     @FindBy(css="#breadcrumbs>li:nth-child(2)>a")
     WebElement nameIcon;
+    @FindBy(css = ".PersonName-givenName")
+    WebElement extractfirstName;
+    @FindBy(css = ".PersonName-familyName")
+    WebElement extractlastName;
+    @FindBy(css = ".float-sm-right>span")
+    WebElement extractId;
+    @FindBy(css = ".gender-age.col-auto>span:nth-of-type(2)")
+    WebElement extractDob;
+    @FindBy(css = ".gender-age.col-auto>span:nth-of-type(1)")
+    WebElement extractGender;
+
     WebDriver driver;
     WebDriverWait wait;
 
@@ -71,6 +82,21 @@ public class Patientpage {
     public void ClickonnameIcon(){
         wait.until(ExpectedConditions.elementToBeClickable(nameIcon));
         nameIcon.click();
+    }
+    public String Extractfirstname(){
+        return extractfirstName.getText();
+    }
+    public String Extractlastname(){
+        return extractlastName.getText();
+    }
+    public String Extractid(){
+        return extractId.getText();
+    }
+    public String Extractdateofbirth(){
+        return extractDob.getText();
+    }
+    public String ExtractGender(){
+        return extractGender.getText();
     }
 
 
